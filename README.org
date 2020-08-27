@@ -1,0 +1,14 @@
+#+TITLE: Skira Dev Environment
+This is a nix-shell development environment used to work on products for Skira AB.
+
+It's designed to be used with direnv and nix-shell to automatically configure a development
+environment with nodejs and postgres available and configured.
+
+It exposes the following convenience functions:
+- create-db-users :: Instantiates database users. Assumes that the database is created.
+- create-dbs :: Creates the normal and test databases required for the application. Assumes the database has been instantiated.
+- restart-db :: Restarts the database. Starts the database if it is not currently running.
+- init-db-structure :: Initializes the database and creates the correct users and databases.
+- reset-db :: Deletes the database and reinitializes it.
+- start-skira :: Starts Pumbaa, Mufasa and Nala. Assumes that the three applications are cloned as subdirectories of this repository. Currently only works from the directory in which shell.nix is defined.
+- gen-env-files :: Generates .env files for each of Pumbaa, Mufasa and Nala. Currently only works from the base directory of the project.

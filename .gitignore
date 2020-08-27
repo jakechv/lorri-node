@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+secrets.nix
+postgres
+postgres_data
+
+pumbaa/
+nala/
+mufasa/
+node_modules/
+yarn.lock
