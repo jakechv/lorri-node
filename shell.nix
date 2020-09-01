@@ -95,9 +95,6 @@ in pkgs.mkShell {
     postgresql
   ];
   shellHook = ''
-    # alias y='npx yarn'
-    # alias yarn='npx yarn'
-
     alias startdb='pg_ctl -l $LOG_PATH -o "-c unix_socket_directories=$PGHOST" start'
     alias stopdb='pg_ctl stop'
 
