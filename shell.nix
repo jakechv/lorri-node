@@ -182,6 +182,7 @@ in pkgs.mkShell {
     function reset-db() {
       rm -rf $PGDATA
       rm -rf $PGHOST
+      killall postgres
       init-db-structure
     }
 
