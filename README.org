@@ -39,3 +39,12 @@ user are defined as shell environment variables in '.envrc'.
 Several editors support integration with direnv; you'll need to install your
 editor's direnv compatible program to properly ensure that the right
 dependencies are available to your editor as well.
+
+If you'd like to change the node.js or postgres version, this can be done
+by changing the installation candidate defined in 'shell.nix'.
+
+* Usage
+I currently clone node.js applications as subdirectories of this repository
+and work on them there. If you'd like to integrate this into a single repository,
+feel free to copy everything in the repository but the package.json file in.
+Don't lose your current package.json!
