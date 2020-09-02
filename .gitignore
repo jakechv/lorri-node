@@ -7,8 +7,10 @@ tmp/
 .postgres_data
 
 pumbaa/
+eslint-plugin-spellcheck/
 nala/
 mufasa/
+ezdb/
 node_modules/
 yarn.lock
 

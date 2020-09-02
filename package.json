@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "eslint_d": "^9.1.1",
     "yarn": "^1.22.5"
   }
 }
