@@ -1,4 +1,4 @@
-#+TITLE: Skira Dev Environment
+#+TITLE: Lorri Node
 This is a Nix development environment used to work on Node.js projects.
 
 It's designed to be used with [[https://direnv.net][direnv]] and [[https://github.com/target/lorri][lorri]] to automatically configure and
