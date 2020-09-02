@@ -6,9 +6,10 @@ environment with nodejs and postgres available and configured.
 
 It exposes the following convenience functions:
 - restart-db :: Restarts the database. Starts the database if it is not currently running.
-- reset-db :: Deletes the database and reinitializes it. Can also be used to initially instantiate the database.
+- reset-db :: Deletes the database and reinitializes it.
 - setup-db :: Sets up the database.
 - startdb :: Start the database.
 - Stopdb :: Stop the database.
+
 * TODO - start-skira :: Starts Pumbaa, Mufasa and Nala. Assumes that the three applications are cloned as subdirectories of this repository. Currently only works from the directory in which shell.nix is defined.
 * TODO - gen-env-files :: Generates .env files for each of Pumbaa, Mufasa and Nala. Currently only works from the base directory of the project.
