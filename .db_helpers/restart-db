@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+echo "Attempting to start the database server..."
+startdb
+if ! [[ $? -eq 0 ]]; then
+echo "The database server was running. Restarting..."
+stopdb
+startdb
+fi

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+echo "${DB_PASSWORD} ${DB_PASSWORD}" | createuser -d -l ${DB_USERNAME}
+if [ $? -eq 0 ]; then
+    echo "Added user ${DB_USERNAME} with password ${DB_PASSWORD}."
+else
+    echo "Could not create the user ${DB_USERNAME}."
+fi

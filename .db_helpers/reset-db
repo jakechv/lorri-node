@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+# Creates databases required by Pumbaa.
+function create-dbs() {
+    createdb ${DB_NAME}
+    createdb ${TEST_DB_NAME}
+}
+
+# Initializes the database.
+function init-db-structure() {
+    if [ ! -d $PGHOST ]; then
+    mkdir -p $PGHOST
+    fi
+
+    if [ ! -d $PGDATA ]; then
+    echo 'Initializing postgresql database...'
+    initdb $PGDATA --auth=trust >/dev/null
+    fi
+
+    restart-db
+    create-db-users
+    create-dbs
+}
+
+# resets the database configuration
+function reset-db() {
+    rm -rf $PGDATA
+    rm -rf $PGHOST
+    killall postgres
+    init-db-structure
+}
+
+reset-db
