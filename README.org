@@ -23,9 +23,9 @@ install-deps
 
 You should see direnv load several environment variables.
 Unfortunately, as lorri does not properly support changing environment variables
-from the 'shell.nix' configuration, they have to be set in direnv.
+from the `shell.nix` configuration, they have to be set in direnv.
 This means that you will not have access to any convenience functions when
-entering the environment using 'lorri shell'.
+entering the environment using `lorri shell`.
 
 Unfortunately, Nix is only currently supported on MacOS and Linux with no plans
 to support Windows in the future. I highly recommend using Windows Subsystem for
@@ -34,14 +34,14 @@ Linux for development regardless and that is readily compatible.
 * Configuration
 The system assumes a simple database configuration with a single user and
 database. The name of the database as well as the username and password of the
-user are defined as shell environment variables in '.envrc'.
+user are defined as shell environment variables in `.envrc`.
 
 Several editors support integration with direnv; you'll need to install your
 editor's direnv compatible program to properly ensure that the right
 dependencies are available to your editor as well.
 
 If you'd like to change the node.js or postgres version, this can be done
-by changing the installation candidate defined in 'shell.nix'.
+by changing the installation candidate defined in `shell.nix`.
 
 * Usage
 I currently clone node.js applications as subdirectories of this repository
