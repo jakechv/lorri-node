@@ -1,15 +1,17 @@
 #+TITLE: Skira Dev Environment
-This is a nix-shell development environment used to work on products for Skira AB.
+This is a Nix development environment used to work on Node.js projects.
 
-It's designed to be used with direnv and nix-shell to automatically configure a development
-environment with nodejs and postgres available and configured.
+It's designed to be used with [[https://direnv.net][direnv]] and [[https://github.com/target/lorri][lorri]] to automatically configure and
+load a development environment with nodejs and postgres available.
 
-It exposes the following convenience functions:
-- restart-db :: Restarts the database. Starts the database if it is not currently running.
-- reset-db :: Deletes the database and reinitializes it.
-- setup-db :: Sets up the database.
-- startdb :: Start the database.
-- Stopdb :: Stop the database.
+The following shell commands are exposed:
+- startdb :: Starts the database.
+- stopdb :: Stops the database.
+- restart-db :: Restarts the database. Starts the database if it isn't currently running.
+- reset-db :: Deletes the database and reinstantiates it it.
+- setup-db :: Sets up the postgres database.
 
-* TODO - start-skira :: Starts Pumbaa, Mufasa and Nala. Assumes that the three applications are cloned as subdirectories of this repository. Currently only works from the directory in which shell.nix is defined.
-* TODO - gen-env-files :: Generates .env files for each of Pumbaa, Mufasa and Nala. Currently only works from the base directory of the project.
+* Configuration
+The system assumes a simple database configuration with a single user and database.
+The name of the database as well as the username and password of the user are defined
+as shell environment variables in '.envrc'.
