@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-# Sets up a Skira development environment.
-git clone https://github.com/plantaseed/nala
-cd nala && yarn && cd ..
-git clone https://github.com/plantaseed/mufasa
-cd mufasa && yarn && cd ..
-git clone https://github.com/plantaseed/pumbaa
-cd pumbaa && yarn && yarn reset-db && cd ..
