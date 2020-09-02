@@ -3,9 +3,8 @@
 *.log
 tmp/
 
-secrets.nix
-postgres
-postgres_data
+.postgres
+.postgres_data
 
 pumbaa/
 nala/
