@@ -8,7 +8,7 @@ The following shell commands are exposed:
 - startdb :: Starts the database.
 - stopdb :: Stops the database.
 - restart-db :: Restarts the database. Starts the database if it isn't currently running.
-- reset-db :: Deletes the database and reinstantiates it it.
+- reset-db :: Deletes the database and reinstantiates it.
 - setup-db :: Sets up the postgres database.
 
 * Configuration
