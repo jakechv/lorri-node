@@ -2,5 +2,4 @@
 
 rm -rf $PGDATA
 rm -rf $PGHOST
-killall postgres
-setup-db
+killall postgres && setup-db
