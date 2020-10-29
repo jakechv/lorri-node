@@ -8,7 +8,12 @@ let
 in pkgs.mkShell {
   buildInputs = [
     nodejs
-    (with nodePackages; [ nodejs bash-language-server ])
+    (with nodePackages; [
+      javascript-typescript-langserver
+      yarn
+      eslint_d
+      bash-language-server
+    ])
     python
     postgresql
   ];

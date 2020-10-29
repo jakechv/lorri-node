@@ -1,7 +1,8 @@
 {
   "dependencies": {
-    "eslint_d": "^9.1.1",
-    "javascript-typescript-langserver": "^2.11.3",
-    "yarn": "^1.22.5"
+    "eslint_d": "9.1.2",
+    "javascript-typescript-langserver": "2.11.3",
+    "npm": "7.0.6",
+    "yarn": "1.22.5"
   }
 }
