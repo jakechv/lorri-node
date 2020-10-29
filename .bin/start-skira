@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+cd ~/skira
+cd pumbaa
+restart-db
+yarn dev &
+cd ../nala
+yarn dev
