@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-pg_ctl -l $LOG_PATH -o "-c unix_socket_directories=$PGHOST" start

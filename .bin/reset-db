@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-rm -rf $PGDATA
-rm -rf $PGHOST
-killall postgres && setup-db

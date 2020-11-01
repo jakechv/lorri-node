@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function main {
+    function _start {
+        pg_ctl -l $LOG_PATH -o "-c unix_socket_directories=$PGHOST" start
+    }
+
+    function _stop {
+        pg_ctl stop
+    }
+
+    function _reset {
+        rm -rf $PGDATA
+        rm -rf $PGHOST
+        killall postgres && setup-db
+    }
+
+    function _restart {
+        echo "Attempting to start the database server..."
+        _start
+        if ! [[ $? -eq 0 ]]; then
+            echo "The database server was running. Restarting..."
+            _stop
+            _start
+        fi
+    }
+
+    function _setup {
+        # Initializes the database.
+        if [ ! -d $PGHOST ]; then
+            mkdir -p $PGHOST
+
+            if [ ! -d $PGDATA ]; then
+                echo 'Initializing postgresql database...'
+                initdb $PGDATA --auth=trust >/dev/null
+            fi
+
+            _restart
+
+            # Add the necessary users to the database.
+            echo "${DB_PASSWORD} ${DB_PASSWORD}" | createuser -d -l ${DB_USERNAME}
+            if [ $? -eq 0 ]; then
+                echo "Added user ${DB_USERNAME} with password ${DB_PASSWORD}."
+            else
+                echo "Could not create the user ${DB_USERNAME}."
+            fi
+
+            # Creates databases required by Pumbaa.
+            createdb ${DB_NAME}
+            createdb ${TEST_DB_NAME}
+        else
+            echo "The database likely already exists. Try running restart-db instead."
+        fi
+    }
+    function _usage {
+        echo "Usage: db COMMAND [FLAGS...] [ARGS...]"
+        echo
+        echo "Available commands:"
+        echo "  start              Start the database"
+        echo "  stop               Stop the database"
+        echo "  restart            Restart the database"
+        echo "  reset              Reset the database"
+        echo "  setup              Set up the database"
+    }
+
+    opt=$1
+    case ${opt} in
+        h|help)     _usage ;;
+        s|start)    _start ;;
+        f|stop)     _stop ;;
+        r|restart)  _restart ;;
+        rs|reset)   _reset ;;
+        su|setup)   _setup ;;
+        \? )
+            _usage
+            echo "Invalid option: -$OPTARG" 1>&2
+            exit 1
+            ;;
+        : )
+            _usage
+            echo "Invalid option: -$OPTARG requires an argument" 1>&2
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
