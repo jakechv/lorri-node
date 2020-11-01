@@ -53,6 +53,7 @@ function main {
             echo "The database likely already exists. Try running restart-db instead."
         fi
     }
+
     function _usage {
         echo "Usage: db COMMAND [FLAGS...] [ARGS...]"
         echo
