@@ -64,25 +64,29 @@ function main {
         echo "  setup              Set up the database"
     }
 
-    opt=$1
-    case ${opt} in
-        h|help)     _usage ;;
-        s|start)    _start ;;
-        f|stop)     _stop ;;
-        r|restart)  _restart ;;
-        rs|reset)   _reset ;;
-        su|setup)   _setup ;;
-        \? )
-            _usage
-            echo "Invalid option: -$OPTARG" 1>&2
-            exit 1
-            ;;
-        : )
-            _usage
-            echo "Invalid option: -$OPTARG requires an argument" 1>&2
-            exit 1
-            ;;
-    esac
+    if [ -z ${1+x} ]; then
+        _usage
+    else
+        opt=$1
+        case ${opt} in
+            h|help)     _usage ;;
+            s|start)    _start ;;
+            f|stop)     _stop ;;
+            r|restart)  _restart ;;
+            rs|reset)   _reset ;;
+            su|setup)   _setup ;;
+            \? )
+                _usage
+                echo "Invalid option: -$OPTARG" 1>&2
+                exit 1
+                ;;
+            : )
+                _usage
+                echo "Invalid option: -$OPTARG requires an argument" 1>&2
+                exit 1
+                ;;
+        esac
+    fi
 }
 
 main "$@"
